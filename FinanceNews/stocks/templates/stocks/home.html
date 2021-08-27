@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <TItle>STOCKS</TItle>
+        <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Poppins');
+	*
+	{
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	background: none;
+
+	}
+
+	.navbar header{
+	background:#74cfbf;
+	height: 80px;
+	width: 100%;
+	
+	}
+
+	.navbar header .logo{
+	color: white;
+	font-size: 35px;
+	line-height: 80px;
+	padding: 0 100px;
+	font-weight: bold; 
+	}
+
+	.navbar header  ul{
+	float: right;
+	margin-right: 20px;
+	}
+
+	.navbar header  ul li{
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+	}
+	.navbar header  ul li a{
+	color: white;
+	font-size: 17px;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	}
+
+	.navbar header  ul li a:hover{
+	background: blue;
+	transition: .5s;
+	}
+
+	.navbar header .menuBtn{
+	font-size: 30px;
+	color: black;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+	}
+
+	#menu{
+	display: none;
+	}
+
+	@media (max-width: 952px){
+	label.logo{
+		font-size: 30px;
+	}
+
+	.navbar header  ul li a{
+		font-size: 16px;
+	}
+
+	}
+
+	@media (max-width: 952px){
+	.navbar header .menuBtn{
+		display: block;
+	}
+
+	.navbar header ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background:#33ccff;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	.navbar header ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+
+	.navbar header ul li a:hover{
+		background: none;
+		color: blue;
+	}
+	#menu:checked ~ ul{
+		left: 0;
+	}
+	}
+</style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <header>
+                <a href="#" class="logo">Stock Market</a>
+                <input type="checkbox" id="menu">
+                <label for="menu" class="menuBtn">
+                    <i class="fa fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="#">My Stock</a></li>
+                    <li><a href="#">sign out</a></li>
+                </ul>
+            </header>
+	</nav>
+	<ul>
+		{% for item in data %}
+		<li>      
+		    <h1>{{ item.stock_name }}</h1>
+		 </li>
+		{% endfor %}
+	    <ul> 
+	
+    </body>
+</html>
