@@ -1,0 +1,82 @@
+{%extends "stocks/home.html" %}
+
+{%block content%}
+
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style>
+
+.details {
+	text-align: center;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  background-color: #808080;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  font-size: 12px;
+  display: inline-block;
+}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #7abecc;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+		</style>
+	</head>
+	<body>
+		<br>
+		<br>
+		<div class="card">
+			<div class="container">
+				<h1>What to do </h1> 
+				<b></b><p>Please select a option on the right<br>
+				    please not any option you select will aplly for all stocks
+				</p></b>
+			<form method ="POST" action="">
+				{%csrf_token%}
+			  <h1><b></b></h1>
+			</div>
+			  <input type= "checkbox" name="daily_sub">Daily Subscription</input>
+			
+			  <input type="checkbox" name="weekly_sub">Weekly Subscription</input>
+			  <p><button type = "submit">Subscribe</button></p>
+			</form>
+			</div>
+		      </div>
+		
+
+
+	</body>
+</html>
+
+{% endblock %}

@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <TItle>STOCKS</TItle>
-        <link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 	@import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -18,7 +17,7 @@
 	}
 
 	.navbar header{
-	background:#74cfbf;
+	background:#33ccff;
 	height: 80px;
 	width: 100%;
 	
@@ -114,24 +113,24 @@
     <body>
         <nav class="navbar">
             <header>
-                <a href="#" class="logo">Stock Market</a>
+		<ul>
+		<li><a href="{%url 'cards'%}" class="logo">Sub To Stocks</a></li>
+		</ul>
                 <input type="checkbox" id="menu">
                 <label for="menu" class="menuBtn">
                     <i class="fa fa-bars"></i>
                 </label>
                 <ul>
-                    <li><a href="#">My Stock</a></li>
-                    <li><a href="#">sign out</a></li>
+                    <li><a href="{% url 'mystocks'%}">My stocks</a></li>
+                    <li><a href="{% url 'login'%}">sign out</a></li>
                 </ul>
             </header>
 	</nav>
-	<ul>
-		{% for item in data %}
-		<li>      
-		    <h1>{{ item.stock_name }}</h1>
-		 </li>
-		{% endfor %}
-	    <ul> 
+
+	{%block content %}
+	<h1>About us</h1>
+	{%endblock%}
 	
+
     </body>
 </html>

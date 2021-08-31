@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Stocknews(models.Model):
-	users =models.ManyToManyField(User,blank=True)
 	stock_name = models.CharField(max_length=100)
 	stock_ticker = models.CharField(max_length=20)
 	date = models.DateField(auto_now_add=True)
@@ -13,8 +12,9 @@ class Stocknews(models.Model):
 		return self.stock_name
 	
 class Subtype(models.Model):
-	users= models.OneToOneField(User, on_delete = models.CASCADE)
+	user= models.OneToOneField(User, on_delete = models.CASCADE)
+	stock_ticker = models.ManyToManyField(Stocknews,blank=True)
 	daily_sub = models.BooleanField(default=False)
 	weekly_sub = models.BooleanField(default=False)
 
-
+	

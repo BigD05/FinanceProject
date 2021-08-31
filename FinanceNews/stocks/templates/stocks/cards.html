@@ -1,0 +1,74 @@
+{%extends "stocks/home.html" %}
+
+{%block content %}
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style>
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  font-size: 12px;
+  display: inline-block;
+}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #7abecc;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+		</style>
+	</head>
+	<body>
+
+		{%for name in data %}
+		<div class="card">
+			<div class="container">
+			<form method ="POST" action="">
+				{%csrf_token%}
+			  <h1><b>{{name.stock_ticker}}</b></h1>
+			  <input type="hidden" name="stock_ticker" value="{{name.stock_ticker}}"> 
+			</div>
+			  <p>{{name.stock_name}}</p>
+			  <input type="hidden" name="stock_name" value="{{name.stock_name}}"> 
+			  <p><button type = "submit">Subscribe</button></p>
+			</form>
+			</div>
+		      </div>
+		<br>
+		<br>
+		{%endfor %}
+	
+	</body>
+</html>
+
+	
+{% endblock %}
