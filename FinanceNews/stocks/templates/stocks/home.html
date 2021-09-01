@@ -15,6 +15,7 @@
 	background: none;
 
 	}
+	
 
 	.navbar header{
 	background:#33ccff;
@@ -107,30 +108,127 @@
 	#menu:checked ~ ul{
 		left: 0;
 	}
-	}
+
+}
 </style>
     </head>
     <body>
         <nav class="navbar">
             <header>
-		<ul>
-		<li><a href="{%url 'cards'%}" class="logo">Sub To Stocks</a></li>
-		</ul>
+		<a href="{%url 'cards'%}" class="logo">Sub To Stocks</a>
                 <input type="checkbox" id="menu">
                 <label for="menu" class="menuBtn">
                     <i class="fa fa-bars"></i>
                 </label>
                 <ul>
+		    <li>Welcome//<i>{{user}}</i></li>
+		    <li><a href="{% url 'home'%}">Home</a></li>
                     <li><a href="{% url 'mystocks'%}">My stocks</a></li>
-                    <li><a href="{% url 'login'%}">sign out</a></li>
+		    <li><a href="{% url 'login'%}">sign out</a></li>
+		    
+		   
                 </ul>
             </header>
 	</nav>
 
 	{%block content %}
-	<h1>About us</h1>
+	<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+
+	.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 10px 24px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 8px;
+	display: inline-block;
+	font-size: 12px;
+	/* border-radius: 12px;
+	transition-duration: 0.4s; */
+	}
+
+	.button:hover {
+	background-color: #4CAF50; /* Green */
+	color: white;
+	}
+
+	.card {
+	margin: auto;
+	text-align: center;
+	}
+	.border-right {
+    	border-right: 1px solid black;
+	}
+	
+	.column {
+	float: left;
+	width: 50%;
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	}
+
+	
+
+	</style>
+	</html>
+	<body>
+	<div class="row">
+		<div class="column">
+			<div class ="col-md-6 border-right">
+				<div class="card">
+			<h1><u>About Us</u></h1><br>
+			<h2>Kyle Dornan</h2>
+			<p>My name is kyle and I am the Co creator of FinanceNews<br>
+			   this project took me and my partner Two weeks to complete<br>
+			   that includes the learning of django framework and the dev<br>
+			   work itself. </p><br>
+
+				<h1><u>My Links</u></h1>
+				<ul>
+			   <h3><li><a class = "button" href ="https://www.linkedin.com/in/kyle-dornan-b854a6190/" >My Linkdin</a></h3></li>
+			   <h3><li><a class ="button" href ="https://github.com/BigD05">My Github</a><h3>
+			   <h3><li><a class ="button" href = "https://kyledornan28.wixsite.com/kyledornan">My Website</a></li></h3>	
+			    </ul><br><br>
+		
+			    <h2>Emmanual Mpwanga</h2><br>
+				    <p>In this project I worked on the html and css<br>
+					which is the front end part of the project.<br>
+					the view of the webpage was my responsibility.<br></p>
+					
+			<h1><u>My Links</u></h1>
+				<ul>
+				<li><a class = "button"href="https://www.linkedin.com/in/emmanuel-mpwanga-4387271bb/">My Linkdin</a></li>
+				<li><a class ="button"href="https://github.com/mannympwanga">My Github</a></li>
+				</ul>
+				</div>
+		</div>
+	</div>
+		<div class="column">
+			<div class ="card">
+			<h1>How to use</h1>
+			<li>Once you have created a account</li>
+			   <li>select stocks you want to subscribe to by clicking "Sub To Stocks"</li>
+			   <li>Then you want to select the type of subscription you want daily/weekly </li>
+			   <li>The My "Stocks button" will show you the stocks you have subscribed to </li>
+			   
+			</div>
+	</div>
+		</div>
+		
+	</body>
+	
 	{%endblock%}
 	
 
-    </body>
+	</body>
 </html>

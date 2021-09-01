@@ -8,6 +8,13 @@
 	<head>
 		<style>
 
+.error{
+	text-align: center;
+	border-radius: 5px;
+	max-width: 300px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	margin: auto;
+}
 
 .card {
   /* Add shadows to create the "card" effect */
@@ -49,8 +56,15 @@
 		</style>
 	</head>
 	<body>
-
+		{%if user_stocks|length == 0 %}
+		<div class="error">
+		<h1>You have no stocks available.</h>
+			<a href="{% url 'cards'%}">click here</a><br>
+			<p>if you want to subscribe to  a stock</p>
+		</div>
+		{%else%}
 		{%for stock in user_stocks %}
+		
 		<div class="card">
 			<div class="container">
 			<form method ="POST" action="">
@@ -67,6 +81,7 @@
 		<br>
 		<br>
 		{%endfor %}
+		{%endif%}
 
 	</body>
 	</html>

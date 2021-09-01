@@ -16,5 +16,3 @@ class Subtype(models.Model):
 	stock_ticker = models.ManyToManyField(Stocknews,blank=True)
 	daily_sub = models.BooleanField(default=False)
 	weekly_sub = models.BooleanField(default=False)
-
-	

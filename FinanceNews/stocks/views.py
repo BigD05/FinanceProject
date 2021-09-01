@@ -26,10 +26,10 @@ def subsdaily(request):
 	if request.method == 'POST':
 		is_daily = request.POST.get('daily_sub', 'off')
 		is_weekly = request.POST.get('weekly_sub', 'off')
-		return redirect('cards')
 		if is_daily == 'on':
 			subtype.update(daily_sub = True)
 			subtype.update(weekly_sub = False)
+			return redirect('cards')
 		elif is_weekly == 'on':
 			subtype.update(weekly_sub = True)
 			subtype.update(daily_sub = False)
@@ -50,7 +50,9 @@ def cardsPage(request):
 	return render(request, 'stocks/cards.html',context)
 
 def Home(request):
-	return render(request, 'stocks/home.html')
+	user = request.user
+	context = {'user':user}
+	return render(request, 'stocks/home.html',context)
 
 
 def registerPage(request):
